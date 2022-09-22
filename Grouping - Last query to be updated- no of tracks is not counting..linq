@@ -99,9 +99,11 @@ Albums
 						{
 							title = egpInstance.Title,
 							artist = egpInstance.Artist.Name,
-							trackcount = egpInstance.Tracks.Count(),
+							trackcountA = egpInstance.Tracks.Count(),
+							trackcountB = egpInstance.Tracks.Select(x => x).Count(),
 							YearOfAlbum = egpInstance.ReleaseYear
 						})
+						.ToList()
 	})
 
 
