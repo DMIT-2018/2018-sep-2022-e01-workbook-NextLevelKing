@@ -48,7 +48,7 @@ var Preprocessemployeelist = Employees
 // Remember in method syntax, we don have to do Select all the time. We use select to create a subset.
 	var highCount = Preprocessemployeelist
 							.Max(x => x.CustomerCount)
-							//.Dump()
+							.Dump()
 							;
 	
 	var BusyEmployees = Preprocessemployeelist
