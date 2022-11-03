@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApp</title>
+    <title>@ViewData["Title"]</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
 
 
@@ -18,7 +18,28 @@
 
             <ul>
                 <li>
+                    <a asp-area="" asp-page="/Index">
+                        <img src="~/img/ChinookMusicMenuLogo.jpg" alt="Menu Logo image" title="Go to Home">
+
+                    </a>
+                </li>
+                <li>
                     <a asp-area="" asp-page="/Index">Home</a>
+                </li>
+                @*
+                    set up a submenu (drop down menu) using holiday.css
+                    see holidaycss.js.org
+
+                    start with a li tag
+                    within: add a span tag:entry on the menu root
+                            add ul tag: starts the drop down menu
+                            within the ul tag : add any number of li menu items
+                *@
+                <li>
+                    <span>Samples</span>
+                    <ul>
+                        <li><a asp-area="" asp-page="/SamplePages/Index">Default SamplePages Home</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a asp-area="" asp-page="/Privacy">Privacy</a>
