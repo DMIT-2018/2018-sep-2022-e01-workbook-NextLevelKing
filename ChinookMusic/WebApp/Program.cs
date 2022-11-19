@@ -1,7 +1,11 @@
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 
+#region Additional Namespaces
+using ChinookSystem;
+#endregion
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,18 +17,23 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 var connectionStringChinook = builder.Configuration.GetConnectionString("ChinookDB");
 
+//if everyone in the group uses the same connection name, then we dont have to do anything more than we
+//have done to the connection string but the backend dependencies,
+//we code that in the respective libraries. 
+
 
 //given for the db connection to Defaultconnection string
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 //code the db connection to the application DB context for Chinook
-//the implementation of the connect AND registration of the ChinooSystem services will be done in the ChinookSystem class library
+//the implementation of the connect AND registration of the ChinooSystem services will be done in
+//the ChinookSystem class library
 //to accomplish this task,
 //we will be using an "extension" method will extend the IServiceCollection Class
 //the extension method requires a parameter options.UseSqlServer(xxx)
 //where xxx is the connection string variable.
-//builder.Services.ChinookSystemBackedDependencies(options => options.UseSqlServer(connectionStringChinook));
+builder.Services.ChinookSystemBackedDependencies(options => options.UseSqlServer(connectionStringChinook));
 
 
  

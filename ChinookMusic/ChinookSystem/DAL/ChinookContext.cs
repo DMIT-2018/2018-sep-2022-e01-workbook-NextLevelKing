@@ -10,11 +10,11 @@ namespace ChinookSystem.DAL
 {
     internal partial class ChinookContext : DbContext
     {
-        internal ChinookContext()
+        public ChinookContext()
         {
         }
 
-        internal ChinookContext(DbContextOptions<ChinookContext> options)
+        public ChinookContext(DbContextOptions<ChinookContext> options)
             : base(options)
         {
         }
